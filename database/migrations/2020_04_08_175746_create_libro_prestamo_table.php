@@ -14,7 +14,6 @@ class CreateLibroPrestamoTable extends Migration
     public function up()
     {
         Schema::create('libro_prestamo', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger('usuario_id');
             $table->foreign('usuario_id', 'fk_libroprestamo_usuario')->references('id')->on('usuario')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('libro_id');
@@ -24,6 +23,8 @@ class CreateLibroPrestamoTable extends Migration
             $table->boolean('estado');
             $table->date('fecha_devolucion')->nulable();
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

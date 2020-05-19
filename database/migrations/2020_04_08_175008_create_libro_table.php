@@ -22,6 +22,8 @@ class CreateLibroTable extends Migration
             $table->string('editorial', 50)->nulable();
             $table->string('foto', 100)->nulable();
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 
